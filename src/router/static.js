@@ -1,4 +1,4 @@
-import Layout from '~/views/application/layout'
+import Layout from '~/views/layout'
 
 export default [{
   path: '',
