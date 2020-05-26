@@ -178,7 +178,7 @@ export default {
     .tools{
       position: absolute; left: 0; top: 0; cursor: pointer;
       .move{ display: none; position: absolute; left: 3px; top: 3px; color: #DCDCDC;}
-      .del{ display: none; position: absolute; left: -5px; top: -5px; background-color: rgba(149,149,149, .8); color: #fff; padding: 5px; border-radius: 50%;}
+      .del{ display: none; position: absolute; left: -5px; top: -5px; width: 30px; height: 30px; line-height: 30px; text-align: center; background-color: rgba(149,149,149, .8); color: #fff; border-radius: 50%;}
     }
     .goods-list{
       display: flex; align-items: center; flex-wrap: wrap; max-height: 189px; overflow: auto;
