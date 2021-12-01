@@ -1,6 +1,7 @@
 import { createApp } from 'vue'
 import App from './App.vue'
 import router, { setupRouter } from './router'
+import { setupStore } from './store'
 import { XApplication } from '@/components/x-application'
 
 const appProvider = createApp(XApplication)
@@ -8,6 +9,8 @@ const appProvider = createApp(XApplication)
 appProvider.mount('#appProvider', true)
 
 const app = createApp(App)
+// 挂载vuex状态管理
+setupStore(app)
 // 挂载router
 setupRouter(app)
 
