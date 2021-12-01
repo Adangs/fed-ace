@@ -1,20 +1,24 @@
 <template>
   <div class="m-login">
     <div class="hallo">
-      <h1>Hello word…</h1>
+      <div>
+        <n-gradient-text :size="124" type="success">Hello word…</n-gradient-text>
+      </div>
       <x-button type="primary">Login…</x-button>
     </div>
   </div>
 </template>
 
 <script lang="ts">
-  import { computed, defineComponent, reactive, toRefs } from 'vue'
+  import { defineComponent, reactive, toRefs } from 'vue'
+  import { NGradientText } from 'naive-ui'
   import { XButton } from '@/components'
   import { useRouter } from 'vue-router'
 
   export default defineComponent({
     name: 'Login',
     components: {
+      NGradientText,
       XButton
     },
     setup() {
