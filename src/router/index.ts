@@ -1,4 +1,4 @@
-import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
+import { createRouter, createWebHashHistory, RouteRecordRaw } from 'vue-router'
 import { createRouterGuards } from './guards'
 import ConstantRoutes from './constant'
 import { App } from 'vue'
@@ -27,7 +27,7 @@ sortRouter.forEach((item) => {
 
 const router = createRouter({
   routes: ConstantRoutes,
-  history: createWebHistory()
+  history: createWebHashHistory()
 })
 
 export function setupRouter(app: App) {

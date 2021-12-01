@@ -2,14 +2,14 @@ import { Router, RouteRecordRaw } from 'vue-router'
 import { local_storage } from '@/utils/storage'
 // import $store from '@/store'
 
-const whiteList = ['/login', '/404']
+const whiteList = ['/', '/404']
 export function createRouterGuards(router: Router) {
   router.beforeEach(async (to, from, next) => {
     const Loading = window['$loading'] || null
     Loading && Loading.start()
     if (local_storage.get('token')) {
       if (to.path === '/login') {
-        next({ path: '/' })
+        next({ path: '#/' })
       } else {
         // const { accountId } = $store.getters
         const accountId = null
@@ -30,8 +30,8 @@ export function createRouterGuards(router: Router) {
             })
           } catch (e) {
             // 清除本地缓存用户数据并跳转到登录页重新登录
-            $store.dispatch('user/logout')
-            next(`/login?redirect=${to.fullPath}`)
+            // $store.dispatch('user/logout')
+            next(`#/login?redirect=${to.fullPath}`)
           }
         }
       }
@@ -41,7 +41,7 @@ export function createRouterGuards(router: Router) {
         next()
       } else {
         // 其他没有访问权限的页面将重定向到登录页面。
-        next(`/login?redirect=${to.fullPath}`)
+        next(`#/login?redirect=${to.fullPath}`)
       }
     }
   })
