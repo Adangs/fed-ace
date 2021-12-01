@@ -13,11 +13,5 @@ export default [
     meta: {
       hidden: false
     }
-  },
-  {
-    path: '/:pathMatch(.*)*',
-    redirect: '/404',
-    name: 'NotFound',
-    component: () => import('@/views/error/404.vue')
   }
 ]

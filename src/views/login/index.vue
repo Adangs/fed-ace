@@ -4,7 +4,7 @@
       <div>
         <n-gradient-text :size="124" type="success">Hello word…</n-gradient-text>
       </div>
-      <x-button type="primary">Login…</x-button>
+      <x-button type="primary" @click="handleLogin">Login…</x-button>
     </div>
   </div>
 </template>
@@ -13,6 +13,7 @@
   import { defineComponent, reactive, toRefs } from 'vue'
   import { NGradientText } from 'naive-ui'
   import { XButton } from '@/components'
+  import { useStore } from '@/store'
   import { useRouter } from 'vue-router'
 
   export default defineComponent({
@@ -22,11 +23,21 @@
       XButton
     },
     setup() {
+      const $store = useStore()
       const $router = useRouter()
       const $state = reactive({})
 
+      const handleLogin = () => {
+        $store.dispatch('user/login').then(() => {
+          $router.push({
+            name: 'PageCreate'
+          })
+        })
+      }
+
       return {
-        ...toRefs($state)
+        ...toRefs($state),
+        handleLogin
       }
     }
   })

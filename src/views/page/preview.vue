@@ -1,5 +1,5 @@
 <template>
-  <n-button>preview</n-button>
+  <div>preview</div>
 </template>
 
 <script lang="ts"></script>

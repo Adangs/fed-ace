@@ -1,6 +1,6 @@
 import { Router, RouteRecordRaw } from 'vue-router'
 import { local_storage } from '@/utils/storage'
-// import $store from '@/store'
+import $store from '@/store'
 
 const whiteList = ['/', '/404']
 export function createRouterGuards(router: Router) {
@@ -11,19 +11,18 @@ export function createRouterGuards(router: Router) {
       if (to.path === '/login') {
         next({ path: '#/' })
       } else {
-        // const { accountId } = $store.getters
-        const accountId = null
+        const { accountId } = $store.getters
         if (accountId) {
           // 判断当前用户是否已拉取完user_info信息
           next()
         } else {
           try {
-            // await $store.dispatch('user/getUserInfo')
-            // await $store.dispatch('permission/generateRoutes')
-            // const permissionRoutes: RouteRecordRaw[] = $store.state.permission.permissionRoutes
-            // permissionRoutes.forEach((route) => {
-            //   router.addRoute(route)
-            // })
+            await $store.dispatch('user/getUserInfo')
+            await $store.dispatch('permission/generateRoutes')
+            const permissionRoutes: RouteRecordRaw[] = $store.state.permission.permissionRoutes
+            permissionRoutes.forEach((route) => {
+              router.addRoute(route)
+            })
             next({
               ...to,
               replace: true
