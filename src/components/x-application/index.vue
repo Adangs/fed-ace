@@ -24,7 +24,8 @@
     NLoadingBarProvider,
     NConfigProvider,
     zhCN,
-    dateZhCN
+    dateZhCN,
+    GlobalThemeOverrides
   } from 'naive-ui'
   import { XMessageContent } from '@/components/x-message-content'
   import { XDialogContent } from '@/components/x-dialog-content'
@@ -43,14 +44,13 @@
       XLoadingContent
     },
     setup() {
-      const themeOverrides = {
+      const themeOverrides: GlobalThemeOverrides = {
         common: {
           primaryColor: '#536FFF',
           primaryColorHover: 'rgba(83, 111, 255, .9)',
           primaryColorPressed: '#536FFF',
           primaryColorSuppl: 'rgba(83, 111, 255, .9)',
           successColor: '#22B46B',
-          // infoColor: '#999999',
           infoColor: '#536FFF',
           warningColor: '#FDAA29',
           errorColor: '#FD494D',
