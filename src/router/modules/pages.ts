@@ -30,6 +30,14 @@ export default [
         meta: {
           title: '微页面复制'
         }
+      },
+      {
+        path: 'preview',
+        name: 'PagePreview',
+        component: () => import('@/views/page/preview.vue'),
+        meta: {
+          title: '微页面预览'
+        }
       }
     ]
   }

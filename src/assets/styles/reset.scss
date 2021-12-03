@@ -23,11 +23,27 @@ a,img{ -webkit-touch-callout: none;}
 a,button{ cursor:pointer;}
 input,textarea,select{-webkit-appearance: none;}
 input:-webkit-autofill{-webkit-box-shadow: 0 0 0 200px white inset;}
-/*
-::-webkit-scrollbar{ width:8px; height:8px;}
-::-webkit-scrollbar-track-piece{background-color:rgba(0,0,0,.05);}
-::-webkit-scrollbar-thumb,
-::-webkit-scrollbar-thumb:vertical{height: 5px;background-color:rgba(0,0,0,.15); -webkit-border-radius: 10px;}
-::-webkit-scrollbar-thumb:hover,
-::-webkit-scrollbar-thumb:vertical:hover{ background-color:rgba(0,0,0,.2);}
-*/
+
+//::-webkit-scrollbar{ width:8px; height:8px;}
+//::-webkit-scrollbar-track-piece{background-color:rgba(0,0,0,.05);}
+//::-webkit-scrollbar-thumb,
+//::-webkit-scrollbar-thumb:vertical{height: 5px;background-color:rgba(0,0,0,.15); -webkit-border-radius: 10px;}
+//::-webkit-scrollbar-thumb:hover,
+//::-webkit-scrollbar-thumb:vertical:hover{ background-color:rgba(0,0,0,.2);}
+
+// global
+html, body, #app {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  height: 100%;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+:root{
+  --header-height: 66px;
+}

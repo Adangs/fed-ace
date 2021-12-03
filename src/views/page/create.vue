@@ -4,10 +4,7 @@
     <p-panel />
     <template #footer>
       <n-space justify="center">
-        <x-button @click="handleBack">返回</x-button>
-        <n-divider vertical />
         <x-button :disabled="loading" @click="handleSend(0, true)">预览</x-button>
-        <x-button v-if="showDraft" :disabled="loading" @click="handleSend(0)">保存至草稿箱</x-button>
         <x-button :disabled="loading" type="primary" @click="handleSend(1)">发布</x-button>
       </n-space>
     </template>
@@ -16,7 +13,7 @@
 
 <script lang="ts">
   import { computed, defineComponent, reactive, toRefs } from 'vue'
-  import { NDivider, NSpace, useMessage } from 'naive-ui'
+  import { NSpace, useMessage } from 'naive-ui'
   import { XLayoutMain, XButton } from '@/components'
   import { useStore } from '@/store'
   import { useRoute, useRouter } from 'vue-router'
@@ -28,7 +25,6 @@
   export default defineComponent({
     name: 'PageCreate',
     components: {
-      NDivider,
       NSpace,
       XLayoutMain,
       XButton,
@@ -39,8 +35,8 @@
       const $message = useMessage()
       const $dictionary = useDictionary()
       $dictionary.get(['PAGE_LINK_TYPE'])
-      const $router = useRouter()
       const $route = useRoute()
+      const $router = useRouter()
       const $store = useStore()
       const { query } = $route
       const $state: any = reactive({
@@ -137,38 +133,19 @@
         })
       }
 
-      // 返回
-      const handleBack = () => {
-        $router.back()
-      }
-
       // 发布
-      const handleSend = (pageType: number, preview: boolean) => {
+      const handleSend = (pageType: number) => {
         handleRequestData(pageType).then((payload: any) => {
-          // 页面类型：0-草稿箱；1-微页面
-          payload.pageType = pageType
-          $state.loading = true
-          $store
-            .dispatch('store-manage/setTinyPages', payload)
-            .then((res) => {
-              $state.page.id = res.data
-              $state.loading = false
-              $message.success('保存成功')
-              if (preview) {
-                window.open(`/outer/page/preview?id=${res.data}`)
-              } else {
-                handleBack()
-              }
-            })
-            .catch(() => {
-              $state.loading = false
-            })
+          localStorage.setItem('page-data', JSON.stringify(payload))
+          $message.success('保存成功')
+          $router.push({
+            name: 'PagePreview'
+          })
         })
       }
 
       return {
         ...toRefs($state),
-        handleBack,
         handleSend
       }
     }
