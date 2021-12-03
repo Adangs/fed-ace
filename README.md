@@ -1,8 +1,8 @@
-# fed-ace
+# FED-ACE
 
 ## Vue 3 + Typescript + Vite + Naive UI
 
-小程序、h5页面配置
+小程序、h5页面配置，仅供学习使用
 
 ![](preview.png)
 
