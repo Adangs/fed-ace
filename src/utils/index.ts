@@ -197,3 +197,33 @@ export function formatWordCount(value: string | number) {
   }
   return Math.ceil(count)
 }
+
+/**
+ * css对象格式为行间css
+ * **/
+export function formatStyle(object: any) {
+  const style: Record<string, any> = {}
+  for (const key in object) {
+    switch (key) {
+      case 'marginBottom':
+        style['margin-bottom'] = /^(\-|\+)?\d+$/.test(<string>object[key]) ? `${object[key]}px` : object[key]
+        break
+      case 'fontSize':
+        style['font-size'] = /^(\-|\+)?\d+$/.test(<string>object[key]) ? `${object[key]}px` : object[key]
+        break
+      case 'backgroundColor':
+        style['background-color'] = object[key]
+        break
+      case 'textAlign':
+        style['text-align'] = object[key]
+        break
+      case 'color':
+        style['color'] = object[key]
+        break
+      case 'fontWeight':
+        style['font-weight'] = object[key]
+        break
+    }
+  }
+  return style
+}
