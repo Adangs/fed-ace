@@ -30,6 +30,6 @@
     "uuid": "^8.3.2",
     "vite": "^2.6.4",
     "vue-tsc": "^0.3.0",
-    "vuedraggable": "^2.24.3"
+    "vuedraggable": "^4.1.0"
   }
 }

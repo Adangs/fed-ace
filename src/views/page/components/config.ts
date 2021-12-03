@@ -84,39 +84,6 @@ export const aside = [
             }
           }
         ]
-      },
-      {
-        vue_name: '客服',
-        vue_icon: 'icon-053',
-        vue_componentsName: 'service',
-        vue_limit: 2,
-        type: 9,
-        templateType: 14,
-        componentStyle: {
-          marginBottom: 10,
-          backgroundColor: '#ffffff'
-        },
-        componentContentList: [
-          {
-            imgUrl:
-              'https://alicdn.madaomall.com/test/feima-uploaded/images/9c/45/9c45ad41494f3074b1c9fe3955715534.png',
-            title: null,
-            remark: null,
-            buttonDesc: '立即添加',
-            contentStyle: {
-              titleFontSize: 18,
-              titleColor: '#333333',
-              titleFontWeight: 'bold',
-              descFontSize: 16,
-              descColor: '#646464',
-              descFontWeight: 'normal',
-              buttonFontSize: 18,
-              buttonColor: '#ffffff',
-              buttonFontWeight: 'bold',
-              buttonBackgroundColor: '#fe3d38'
-            }
-          }
-        ]
       }
     ]
   }
