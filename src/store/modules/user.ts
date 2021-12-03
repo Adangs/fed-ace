@@ -57,7 +57,11 @@ const actions = {
   logout({ commit }: ActionContext<IPermissionState, IStore>) {
     return new Promise((resolve) => {
       commit('SET_TOKEN', null)
-      commit('SET_USERINFO', null)
+      commit('SET_USERINFO', {
+        accountId: null,
+        userName: null,
+        authorizationList: []
+      })
       // 清除本地所有缓存
       session_storage.clear()
       // 清除本地所有缓存
